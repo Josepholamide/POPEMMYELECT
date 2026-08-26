@@ -2,7 +2,6 @@
   --bg:#06080c;
   --panel:#0c1118;
   --panel2:#101722;
-
   --text:#f5f7fb;
   --muted:#9ba5b4;
 
@@ -10,16 +9,9 @@
   --gold2:#8ddcff;
 
   --line:rgba(255,255,255,.1);
-
   --shadow:0 25px 70px rgba(0,0,0,.45);
-
   --radius:24px;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
   box-sizing:border-box;
@@ -29,7 +21,6 @@
 
 html{
   scroll-behavior:smooth;
-  scroll-padding-top:90px;
 }
 
 body{
@@ -40,21 +31,10 @@ body{
   overflow-x:hidden;
 }
 
-img{
-  max-width:100%;
-  display:block;
-}
-
-button,
-a{
-  font-family:inherit;
-}
-
 .container{
   width:min(1180px,92%);
-  margin:0 auto;
+  margin:auto;
 }
-
 
 /* =========================================================
    NOISE
@@ -70,7 +50,6 @@ a{
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
 }
 
-
 /* =========================================================
    HEADER
 ========================================================= */
@@ -82,10 +61,9 @@ a{
   right:0;
   z-index:50;
 
-  background:rgba(6,8,12,.78);
+  background:rgba(6,8,12,.72);
 
   backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
 
   border-bottom:1px solid rgba(255,255,255,.07);
 }
@@ -98,59 +76,43 @@ a{
   justify-content:space-between;
 }
 
-
-/* =========================================================
-   BRAND / PE LOGO
-========================================================= */
-
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
 
-  color:#fff;
+  color:white;
   text-decoration:none;
-  flex-shrink:0;
 }
 
 .brand img{
   width:48px;
   height:48px;
-
   object-fit:contain;
-  flex-shrink:0;
 }
 
-.brand-text{
+.brand span{
   display:grid;
   line-height:1;
-  min-width:0;
 }
 
-.brand-text b{
+.brand b{
   font-size:17px;
   font-weight:800;
   letter-spacing:-.6px;
 }
 
-.brand-text strong{
+.brand strong{
   color:var(--gold);
   font-size:17px;
-  font-weight:800;
 }
 
-.brand-text small{
+.brand small{
   font-size:7px;
   letter-spacing:1.3px;
   color:#aab1bd;
   margin-top:6px;
-  white-space:nowrap;
 }
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 .nav-links{
   display:flex;
@@ -161,9 +123,9 @@ a{
 .nav-links a{
   color:#d8dde6;
   text-decoration:none;
+
   font-size:13px;
   font-weight:600;
-  transition:.25s ease;
 }
 
 .nav-links a:hover{
@@ -172,19 +134,13 @@ a{
 
 .nav-call{
   border:1px solid rgba(37,169,255,.5);
+
   padding:10px 16px;
+
   border-radius:999px;
+
   color:var(--gold)!important;
 }
-
-.nav-call:hover{
-  background:rgba(37,169,255,.08);
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
-========================================================= */
 
 .menu-toggle{
   display:none;
@@ -196,7 +152,6 @@ a{
   height:42px;
 
   cursor:pointer;
-  padding:0;
 }
 
 .menu-toggle span{
@@ -205,15 +160,12 @@ a{
   width:24px;
   height:2px;
 
-  background:#fff;
+  background:white;
 
   margin:5px auto;
 
   border-radius:3px;
-
-  transition:.25s ease;
 }
-
 
 /* =========================================================
    HERO
@@ -231,127 +183,67 @@ a{
 
   overflow:hidden;
 
-  background:#03101c;
+  background:#04111f;
 }
 
+/*
+   TRANSFORMER / ELECTRICAL SUBSTATION BACKGROUND
 
-/* =========================================================
-   HERO BACKGROUND
-   ELECTRIC GRID / TRANSMISSION POWER LINES
-   NO PEOPLE / NO TECHNICIAN
-========================================================= */
+   This replaces the plain hero background.
+   The transformer is kept behind the dark overlay so
+   the text remains readable.
+*/
 
 .hero-bg{
   position:absolute;
-
   inset:0;
 
   background:
     linear-gradient(
       90deg,
-      rgba(2,10,18,.98) 0%,
-      rgba(2,14,26,.91) 35%,
-      rgba(2,14,28,.68) 65%,
-      rgba(2,10,20,.78) 100%
+      rgba(3,12,24,.98) 0%,
+      rgba(3,18,35,.90) 42%,
+      rgba(2,14,28,.70) 72%,
+      rgba(2,14,28,.84) 100%
     ),
-    linear-gradient(
-      180deg,
-      rgba(3,12,22,.2),
-      rgba(2,8,15,.72)
-    ),
-    url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2200&q=90");
+    url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=90");
 
   background-size:cover;
-
   background-position:center;
-
-  background-repeat:no-repeat;
 
   z-index:0;
 
-  transform:scale(1.03);
+  transform:scale(1.02);
 }
 
-
-/* DARK ELECTRICAL OVERLAY */
-
-.hero-bg::before{
+.hero-bg:after{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   background:
     radial-gradient(
-      circle at 75% 42%,
+      circle at 75% 45%,
       rgba(37,169,255,.20),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 20% 70%,
-      rgba(37,169,255,.08),
-      transparent 35%
+      transparent 38%
     );
 
   pointer-events:none;
 }
-
-
-/* BLUE ELECTRICAL GLOW */
-
-.hero-bg::after{
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    linear-gradient(
-      115deg,
-      transparent 20%,
-      rgba(37,169,255,.035) 45%,
-      rgba(37,169,255,.12) 70%,
-      transparent 90%
-    );
-
-  pointer-events:none;
-
-  animation:heroElectricGlow 7s ease-in-out infinite;
-}
-
-@keyframes heroElectricGlow{
-
-  0%,100%{
-    opacity:.45;
-    transform:translateX(-3%);
-  }
-
-  50%{
-    opacity:1;
-    transform:translateX(3%);
-  }
-}
-
-
-/* =========================================================
-   HERO GRID
-========================================================= */
 
 .hero-grid{
   position:absolute;
-
   inset:0;
 
   background-image:
     linear-gradient(
-      rgba(37,169,255,.055) 1px,
+      rgba(37,169,255,.07) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(37,169,255,.055) 1px,
+      rgba(37,169,255,.07) 1px,
       transparent 1px
     );
 
@@ -361,31 +253,15 @@ a{
     linear-gradient(
       to right,
       transparent,
-      black 50%,
-      transparent
-    );
-
-  -webkit-mask-image:
-    linear-gradient(
-      to right,
-      transparent,
-      black 50%,
+      black 55%,
       transparent
     );
 
   z-index:1;
-
-  opacity:.8;
 }
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
 
 .hero-content{
   position:relative;
-
   z-index:2;
 
   display:grid;
@@ -397,14 +273,8 @@ a{
   gap:45px;
 }
 
-
-/* =========================================================
-   EYEBROW
-========================================================= */
-
 .eyebrow{
   display:flex;
-
   align-items:center;
 
   gap:10px;
@@ -412,7 +282,6 @@ a{
   color:var(--gold);
 
   font-size:11px;
-
   font-weight:800;
 
   letter-spacing:2.2px;
@@ -428,16 +297,9 @@ a{
 
   display:block;
 
-  flex-shrink:0;
-
   box-shadow:
     0 0 12px rgba(37,169,255,.6);
 }
-
-
-/* =========================================================
-   HEADINGS
-========================================================= */
 
 h1{
   font-size:clamp(45px,6vw,78px);
@@ -464,10 +326,13 @@ h2 span{
   margin:25px 0 30px;
 }
 
+.hero-actions{
+  display:flex;
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+  gap:12px;
+
+  flex-wrap:wrap;
+}
 
 .btn{
   display:inline-flex;
@@ -494,8 +359,6 @@ h2 span{
   font-family:inherit;
 
   transition:.25s ease;
-
-  white-space:nowrap;
 }
 
 .btn-gold{
@@ -516,7 +379,7 @@ h2 span{
 .btn-ghost{
   background:rgba(255,255,255,.04);
 
-  color:#fff;
+  color:white;
 
   border-color:rgba(255,255,255,.16);
 }
@@ -537,26 +400,11 @@ h2 span{
   border-color:rgba(37,169,255,.35);
 }
 
-.btn-qr:hover{
-  background:#152230;
-
-  transform:translateY(-2px);
-}
-
-
-/* =========================================================
-   HERO ACTIONS
-========================================================= */
-
-.hero-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
 .trust-row{
   display:flex;
+
   gap:20px;
+
   flex-wrap:wrap;
 
   margin-top:26px;
@@ -568,25 +416,21 @@ h2 span{
   font-weight:600;
 }
 
-
 /* =========================================================
-   HERO VISUAL
+   TECHNICIAN SCENE
 ========================================================= */
 
 .hero-visual{
-  min-width:0;
-
   display:flex;
 
   justify-content:center;
   align-items:center;
 
-  position:relative;
+  min-width:0;
 }
 
 .tech-scene{
   width:min(500px,100%);
-
   height:500px;
 
   position:relative;
@@ -597,49 +441,46 @@ h2 span{
     radial-gradient(
       circle at 65% 35%,
       rgba(37,169,255,.12),
-      transparent 38%
+      transparent 35%
     ),
     linear-gradient(
       145deg,
-      rgba(14,27,40,.5),
-      rgba(4,9,15,.35)
+      rgba(14,27,40,.96),
+      rgba(4,9,15,.98)
     );
 
-  border:1px solid rgba(37,169,255,.15);
+  border:1px solid rgba(37,169,255,.22);
 
   border-radius:32px;
 
   box-shadow:
-    0 30px 80px rgba(0,0,0,.35),
-    0 0 80px rgba(37,169,255,.05);
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 80px rgba(37,169,255,.08);
 }
 
-.tech-scene::before{
+.tech-scene:before{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   background-image:
     linear-gradient(
-      rgba(37,169,255,.035) 1px,
+      rgba(37,169,255,.045) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(37,169,255,.035) 1px,
+      rgba(37,169,255,.045) 1px,
       transparent 1px
     );
 
   background-size:40px 40px;
 
-  opacity:.6;
-
-  pointer-events:none;
+  opacity:.7;
 }
 
-.tech-scene::after{
+.tech-scene:after{
   content:"";
 
   position:absolute;
@@ -649,14 +490,12 @@ h2 span{
 
   border-radius:50%;
 
-  background:rgba(37,169,255,.06);
+  background:rgba(37,169,255,.08);
 
-  filter:blur(70px);
+  filter:blur(60px);
 
   top:80px;
   right:30px;
-
-  pointer-events:none;
 
   animation:sceneGlow 5s ease-in-out infinite;
 }
@@ -665,153 +504,14 @@ h2 span{
 
   0%,100%{
     transform:scale(.9);
-    opacity:.3;
+    opacity:.45;
   }
 
   50%{
-    transform:scale(1.1);
-    opacity:.65;
+    transform:scale(1.15);
+    opacity:.85;
   }
 }
-
-
-/* =========================================================
-   DECORATIVE HERO POWER LINES
-========================================================= */
-
-.scene-power-lines{
-  position:absolute;
-
-  inset:0;
-
-  pointer-events:none;
-}
-
-.scene-power-lines span{
-  position:absolute;
-
-  display:block;
-
-  height:2px;
-
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(37,169,255,.8),
-    transparent
-  );
-
-  box-shadow:
-    0 0 14px rgba(37,169,255,.6);
-
-  transform-origin:left center;
-
-  animation:powerLine 4s ease-in-out infinite;
-}
-
-.scene-power-lines span:nth-child(1){
-  width:75%;
-
-  top:42%;
-
-  left:10%;
-
-  transform:rotate(-14deg);
-}
-
-.scene-power-lines span:nth-child(2){
-  width:65%;
-
-  top:54%;
-
-  left:20%;
-
-  transform:rotate(18deg);
-
-  animation-delay:1s;
-}
-
-.scene-power-lines span:nth-child(3){
-  width:55%;
-
-  top:68%;
-
-  left:18%;
-
-  transform:rotate(-8deg);
-
-  animation-delay:2s;
-}
-
-@keyframes powerLine{
-
-  0%,100%{
-    opacity:.25;
-  }
-
-  50%{
-    opacity:1;
-  }
-}
-
-
-/* =========================================================
-   HERO ENERGY RING
-========================================================= */
-
-.scene-energy-ring{
-  position:absolute;
-
-  width:230px;
-  height:230px;
-
-  left:50%;
-  top:52%;
-
-  transform:translate(-50%,-50%);
-
-  border:1px solid rgba(37,169,255,.2);
-
-  border-radius:50%;
-
-  box-shadow:
-    0 0 60px rgba(37,169,255,.08);
-
-  animation:ringPulse 4s ease-in-out infinite;
-}
-
-.scene-energy-ring::before,
-.scene-energy-ring::after{
-  content:"";
-
-  position:absolute;
-
-  inset:20px;
-
-  border:1px solid rgba(141,220,255,.12);
-
-  border-radius:50%;
-}
-
-.scene-energy-ring::after{
-  inset:55px;
-
-  border-color:rgba(37,169,255,.2);
-}
-
-@keyframes ringPulse{
-
-  0%,100%{
-    transform:translate(-50%,-50%) scale(.94);
-    opacity:.5;
-  }
-
-  50%{
-    transform:translate(-50%,-50%) scale(1.06);
-    opacity:1;
-  }
-}
-
 
 /* =========================================================
    SCENE LABEL
@@ -826,20 +526,18 @@ h2 span{
   z-index:20;
 
   display:flex;
-
   align-items:center;
 
   gap:8px;
 
   font-size:9px;
-
   font-weight:800;
 
   letter-spacing:1.8px;
 
   color:#b8c5d4;
 
-  background:rgba(0,0,0,.42);
+  background:rgba(0,0,0,.3);
 
   border:1px solid rgba(255,255,255,.08);
 
@@ -874,6 +572,1095 @@ h2 span{
   }
 }
 
+/* =========================================================
+   HERO HYBRID INVERTER
+========================================================= */
+
+.hybrid-inverter{
+  position:absolute;
+
+  width:185px;
+  height:275px;
+
+  right:48px;
+  top:105px;
+
+  z-index:4;
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #26313d,
+      #10171f 65%,
+      #080c11
+    );
+
+  border:1px solid rgba(255,255,255,.16);
+
+  box-shadow:
+    15px 25px 45px rgba(0,0,0,.45),
+    inset 0 1px 1px rgba(255,255,255,.12);
+
+  animation:inverterFloat 4s ease-in-out infinite;
+}
+
+@keyframes inverterFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-5px);
+  }
+}
+
+.inverter-top{
+  height:32px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 13px;
+
+  font-size:7px;
+
+  font-weight:900;
+
+  letter-spacing:1.6px;
+
+  color:#aeb8c5;
+
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.inverter-title{
+  text-align:center;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+
+  color:#e8edf4;
+
+  padding-top:14px;
+}
+
+.inverter-screen{
+  position:absolute;
+
+  top:72px;
+
+  left:20px;
+  right:20px;
+
+  height:82px;
+
+  padding:13px;
+
+  background:#061015;
+
+  border:1px solid rgba(37,169,255,.24);
+
+  border-radius:8px;
+
+  box-shadow:
+    inset 0 0 20px rgba(37,169,255,.06),
+    0 0 20px rgba(37,169,255,.06);
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:4px;
+}
+
+.inverter-screen span{
+  font-size:6px;
+
+  color:#718091;
+
+  letter-spacing:1px;
+}
+
+.inverter-screen strong{
+  font-size:13px;
+
+  color:#5de58a;
+
+  letter-spacing:1px;
+}
+
+.screen-bars{
+  display:flex;
+
+  gap:4px;
+
+  margin-top:3px;
+}
+
+.screen-bars i{
+  display:block;
+
+  width:19px;
+  height:4px;
+
+  border-radius:4px;
+
+  background:#1d5069;
+
+  animation:screenBars 1.4s ease-in-out infinite;
+}
+
+.screen-bars i:nth-child(2){
+  animation-delay:.15s;
+}
+
+.screen-bars i:nth-child(3){
+  animation-delay:.3s;
+}
+
+.screen-bars i:nth-child(4){
+  animation-delay:.45s;
+}
+
+@keyframes screenBars{
+
+  0%,100%{
+    opacity:.35;
+    transform:scaleY(.7);
+  }
+
+  50%{
+    opacity:1;
+
+    transform:scaleY(1);
+
+    background:#25a9ff;
+
+    box-shadow:
+      0 0 7px rgba(37,169,255,.7);
+  }
+}
+
+.inverter-lights{
+  position:absolute;
+
+  bottom:23px;
+  left:22px;
+
+  display:flex;
+
+  gap:8px;
+}
+
+.inverter-lights span{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:#25a9ff;
+
+  box-shadow:
+    0 0 8px rgba(37,169,255,.8);
+}
+
+.inverter-lights span:nth-child(2){
+  background:#5de58a;
+
+  box-shadow:
+    0 0 8px rgba(93,229,138,.8);
+}
+
+.inverter-lights span:nth-child(3){
+  background:#67717c;
+
+  box-shadow:none;
+}
+
+/* =========================================================
+   INVERTER CABLES
+========================================================= */
+
+.inverter-wire{
+  position:absolute;
+
+  width:75px;
+  height:10px;
+
+  border-bottom:4px solid #111a22;
+
+  border-radius:50%;
+
+  z-index:-1;
+}
+
+.wire-one{
+  left:-55px;
+  top:95px;
+
+  transform:rotate(15deg);
+}
+
+.wire-two{
+  right:-55px;
+  top:155px;
+
+  transform:rotate(-15deg);
+}
+
+.wire-three{
+  left:-40px;
+  bottom:45px;
+
+  transform:rotate(-12deg);
+}
+
+/* =========================================================
+   ADULT PPE TECHNICIAN
+========================================================= */
+
+.technician{
+  position:absolute;
+
+  width:245px;
+  height:410px;
+
+  left:35px;
+  bottom:5px;
+
+  z-index:6;
+
+  animation:technicianMove 4s ease-in-out infinite;
+
+  transform-origin:bottom center;
+
+  filter:
+    drop-shadow(
+      0 15px 20px rgba(0,0,0,.28)
+    );
+}
+
+@keyframes technicianMove{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50%{
+    transform:
+      translateY(-4px)
+      rotate(-.5deg);
+  }
+}
+
+/* =========================================================
+   TECHNICIAN NECK
+========================================================= */
+
+.tech-neck{
+  position:absolute;
+
+  width:27px;
+  height:25px;
+
+  left:101px;
+  top:93px;
+
+  z-index:1;
+
+  background:
+    linear-gradient(
+      90deg,
+      #875337,
+      #bd7955,
+      #8d5639
+    );
+
+  border-radius:8px;
+}
+
+/* =========================================================
+   TECHNICIAN HEAD
+========================================================= */
+
+.head{
+  position:absolute;
+
+  width:65px;
+  height:72px;
+
+  left:82px;
+  top:39px;
+
+  z-index:3;
+
+  border-radius:
+    46% 46% 43% 43%;
+
+  background:
+    radial-gradient(
+      circle at 34% 30%,
+      #d79a72 0%,
+      #b87450 48%,
+      #875137 100%
+    );
+
+  box-shadow:
+    inset -8px -7px 12px rgba(45,20,10,.22),
+    inset 4px 3px 7px rgba(255,255,255,.08);
+}
+
+.ear{
+  position:absolute;
+
+  width:13px;
+  height:21px;
+
+  left:-7px;
+  top:25px;
+
+  border-radius:50%;
+
+  background:#a96848;
+
+  box-shadow:
+    inset 2px 0 3px rgba(0,0,0,.2);
+}
+
+.hair{
+  position:absolute;
+
+  width:61px;
+  height:25px;
+
+  left:2px;
+  top:-3px;
+
+  border-radius:
+    45px 45px 15px 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151313,
+      #34231d
+    );
+}
+
+.eye{
+  position:absolute;
+
+  width:7px;
+  height:5px;
+
+  top:31px;
+
+  background:#17110f;
+
+  border-radius:50%;
+
+  animation:blink 5s infinite;
+}
+
+.eye-left{
+  left:19px;
+}
+
+.eye-right{
+  right:18px;
+}
+
+@keyframes blink{
+
+  0%,45%,48%,100%{
+    transform:scaleY(1);
+  }
+
+  46%,47%{
+    transform:scaleY(.12);
+  }
+}
+
+.nose{
+  position:absolute;
+
+  width:8px;
+  height:13px;
+
+  left:29px;
+  top:34px;
+
+  border-right:
+    2px solid rgba(80,38,25,.5);
+
+  border-bottom:
+    2px solid rgba(80,38,25,.35);
+
+  transform:rotate(12deg);
+}
+
+.mouth{
+  position:absolute;
+
+  width:18px;
+  height:7px;
+
+  left:24px;
+  top:51px;
+
+  border-bottom:
+    2px solid rgba(63,29,22,.65);
+
+  border-radius:
+    0 0 50% 50%;
+}
+
+/* =========================================================
+   SAFETY HELMET
+========================================================= */
+
+.helmet{
+  position:absolute;
+
+  width:84px;
+  height:48px;
+
+  left:72px;
+  top:16px;
+
+  z-index:5;
+
+  border-radius:
+    48px 48px 13px 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafc,
+      #c8d1d9 55%,
+      #929ea8
+    );
+
+  box-shadow:
+    0 7px 13px rgba(0,0,0,.35),
+    inset 0 2px 3px rgba(255,255,255,.8);
+}
+
+.helmet-top{
+  position:absolute;
+
+  width:59px;
+  height:30px;
+
+  left:13px;
+  top:-1px;
+
+  border-radius:
+    50px 50px 5px 5px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dce3e8
+    );
+}
+
+.helmet-logo{
+  position:absolute;
+
+  z-index:5;
+
+  left:32px;
+  top:9px;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  color:#087dc0;
+
+  text-shadow:
+    0 1px 1px rgba(255,255,255,.7);
+}
+
+.helmet-brim{
+  position:absolute;
+
+  width:100px;
+  height:10px;
+
+  left:-8px;
+  bottom:-4px;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #e4e9ed,
+      #aeb9c2
+    );
+
+  box-shadow:
+    0 3px 5px rgba(0,0,0,.25);
+}
+
+/* =========================================================
+   PPE BODY
+========================================================= */
+
+.body{
+  position:absolute;
+
+  width:115px;
+  height:172px;
+
+  left:55px;
+  top:111px;
+
+  z-index:2;
+
+  border-radius:
+    27px 27px 14px 14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b8c2cb 0%,
+      #f0f3f5 25%,
+      #dbe1e5 55%,
+      #aab5be 100%
+    );
+
+  border:
+    1px solid rgba(255,255,255,.35);
+
+  box-shadow:
+    inset -13px 0 18px rgba(0,0,0,.15),
+    inset 5px 0 9px rgba(255,255,255,.35);
+}
+
+.vest-panel{
+  position:absolute;
+
+  inset:13px 12px 12px;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(37,169,255,.08),
+      rgba(255,255,255,.16),
+      rgba(37,169,255,.06)
+    );
+
+  border:
+    2px solid rgba(37,169,255,.65);
+}
+
+.vest-line{
+  position:absolute;
+
+  width:82px;
+  height:4px;
+
+  left:16px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #159be5,
+      #72d5ff,
+      #159be5
+    );
+
+  box-shadow:
+    0 0 8px rgba(37,169,255,.4);
+
+  z-index:4;
+}
+
+.vest-one{
+  top:56px;
+}
+
+.vest-two{
+  top:101px;
+}
+
+.vest-logo{
+  position:absolute;
+
+  z-index:5;
+
+  left:31px;
+  top:72px;
+
+  text-align:center;
+
+  color:#1c303e;
+}
+
+.vest-logo b{
+  display:block;
+
+  font-size:15px;
+
+  font-weight:900;
+
+  color:#087fbd;
+}
+
+.vest-logo small{
+  display:block;
+
+  margin-top:2px;
+
+  font-size:4px;
+
+  letter-spacing:.8px;
+
+  color:#465965;
+}
+
+.zipper{
+  position:absolute;
+
+  width:3px;
+  height:148px;
+
+  left:56px;
+  top:10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #52616d,
+      #263540
+    );
+
+  opacity:.75;
+}
+
+/* =========================================================
+   ARMS
+========================================================= */
+
+.arm{
+  position:absolute;
+
+  width:31px;
+  height:120px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #9da9b2,
+      #edf1f3 45%,
+      #a3adb5
+    );
+
+  transform-origin:top center;
+
+  box-shadow:
+    inset -5px 0 8px rgba(0,0,0,.15);
+}
+
+.arm-back{
+  left:39px;
+  top:122px;
+
+  transform:rotate(23deg);
+
+  z-index:1;
+}
+
+.arm-front{
+  left:137px;
+  top:120px;
+
+  transform:rotate(-53deg);
+
+  z-index:8;
+
+  animation:
+    armWork 2.8s ease-in-out infinite;
+}
+
+@keyframes armWork{
+
+  0%,100%{
+    transform:rotate(-53deg);
+  }
+
+  50%{
+    transform:rotate(-43deg);
+  }
+}
+
+.arm-reflective{
+  position:absolute;
+
+  width:27px;
+  height:5px;
+
+  top:62px;
+  left:2px;
+
+  background:#28a9e8;
+
+  box-shadow:
+    0 0 7px rgba(37,169,255,.4);
+}
+
+.glove{
+  position:absolute;
+
+  width:34px;
+  height:31px;
+
+  bottom:-18px;
+  left:-2px;
+
+  border-radius:
+    13px 13px 10px 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #263743,
+      #080f15
+    );
+
+  box-shadow:
+    0 5px 9px rgba(0,0,0,.35);
+}
+
+/* =========================================================
+   WORKING HAND + TOOL
+========================================================= */
+
+.tool-hand{
+  position:absolute;
+
+  width:70px;
+  height:35px;
+
+  left:157px;
+  top:210px;
+
+  z-index:12;
+
+  transform:rotate(-8deg);
+
+  animation:
+    toolMove 2.8s ease-in-out infinite;
+}
+
+@keyframes toolMove{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(-8deg);
+  }
+
+  50%{
+    transform:
+      translateY(-5px)
+      rotate(-8deg);
+  }
+}
+
+.hand{
+  position:absolute;
+
+  width:24px;
+  height:20px;
+
+  left:0;
+  top:5px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #c98662,
+      #8d5338
+    );
+}
+
+.screwdriver{
+  position:absolute;
+
+  left:19px;
+  top:4px;
+
+  width:50px;
+  height:10px;
+
+  transform:rotate(-4deg);
+}
+
+.tool-handle{
+  position:absolute;
+
+  width:25px;
+  height:10px;
+
+  left:0;
+  top:0;
+
+  border-radius:5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #151e25,
+      #40515d,
+      #111920
+    );
+
+  box-shadow:
+    0 0 5px rgba(37,169,255,.3);
+}
+
+.tool-tip{
+  position:absolute;
+
+  width:27px;
+  height:3px;
+
+  left:22px;
+  top:3px;
+
+  background:#b8c3ca;
+
+  box-shadow:
+    0 0 4px rgba(255,255,255,.4);
+}
+
+/* =========================================================
+   LEGS
+========================================================= */
+
+.leg{
+  position:absolute;
+
+  width:39px;
+  height:116px;
+
+  top:268px;
+
+  border-radius:
+    13px 13px 9px 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1b2731,
+      #465967 48%,
+      #18232c
+    );
+
+  box-shadow:
+    inset -6px 0 9px rgba(0,0,0,.25);
+}
+
+.leg-one{
+  left:66px;
+  transform:rotate(2deg);
+}
+
+.leg-two{
+  left:111px;
+  transform:rotate(-2deg);
+}
+
+.leg-reflective{
+  position:absolute;
+
+  width:36px;
+  height:6px;
+
+  top:48px;
+  left:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #179edf,
+      #7edcff,
+      #179edf
+    );
+
+  box-shadow:
+    0 0 8px rgba(37,169,255,.35);
+}
+
+/* =========================================================
+   SAFETY BOOTS
+========================================================= */
+
+.boot{
+  position:absolute;
+
+  width:56px;
+  height:30px;
+
+  top:370px;
+
+  border-radius:
+    8px 20px 8px 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #202b33,
+      #070b0f 70%
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 8px 14px rgba(0,0,0,.45);
+}
+
+.boot-one{
+  left:52px;
+}
+
+.boot-two{
+  left:105px;
+}
+
+/* =========================================================
+   TOOL BOX
+========================================================= */
+
+.tool-box{
+  position:absolute;
+
+  width:120px;
+  height:62px;
+
+  bottom:20px;
+  right:45px;
+
+  z-index:7;
+
+  background:
+    linear-gradient(
+      145deg,
+      #222e39,
+      #0c1218
+    );
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  border-radius:8px;
+
+  box-shadow:
+    0 15px 25px rgba(0,0,0,.35);
+
+  animation:
+    boxFloat 4s ease-in-out infinite;
+}
+
+@keyframes boxFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-2px);
+  }
+}
+
+.tool-box-top{
+  height:18px;
+
+  display:flex;
+  align-items:center;
+
+  padding-left:10px;
+
+  font-size:5px;
+
+  letter-spacing:1px;
+
+  font-weight:900;
+
+  color:#8998a6;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+.tool-slots{
+  display:flex;
+
+  gap:8px;
+
+  padding:13px 12px;
+}
+
+.tool-slots i{
+  width:19px;
+  height:8px;
+
+  display:block;
+
+  border-radius:3px;
+
+  background:#263944;
+
+  border:
+    1px solid rgba(37,169,255,.25);
+}
+
+/* =========================================================
+   FLOOR
+========================================================= */
+
+.scene-floor{
+  position:absolute;
+
+  left:-30px;
+  right:-30px;
+
+  bottom:-35px;
+
+  height:100px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(37,169,255,.12),
+      transparent 65%
+    );
+
+  border-top:
+    1px solid rgba(37,169,255,.12);
+}
 
 /* =========================================================
    SCROLL
@@ -906,7 +1693,6 @@ h2 span{
   margin-left:6px;
 }
 
-
 /* =========================================================
    SECTIONS
 ========================================================= */
@@ -938,12 +1724,14 @@ h2 span{
 
 .section-head.centered{
   display:block;
+
   text-align:center;
 }
 
 .section-head h2,
 h2{
-  font-size:clamp(38px,5vw,58px);
+  font-size:
+    clamp(38px,5vw,58px);
 
   line-height:1.05;
 
@@ -956,7 +1744,6 @@ h2{
   font-size:15px;
 }
 
-
 /* =========================================================
    SERVICE GRID
 ========================================================= */
@@ -964,15 +1751,18 @@ h2{
 .service-grid{
   display:grid;
 
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
   gap:18px;
 }
 
 .service-card{
-  background:rgba(255,255,255,.025);
+  background:
+    rgba(255,255,255,.025);
 
-  border:1px solid rgba(255,255,255,.08);
+  border:
+    1px solid rgba(255,255,255,.08);
 
   border-radius:22px;
 
@@ -987,12 +1777,12 @@ h2{
 .service-card:hover{
   transform:translateY(-7px);
 
-  border-color:rgba(37,169,255,.38);
+  border-color:
+    rgba(37,169,255,.38);
 
   box-shadow:
     0 20px 50px rgba(0,0,0,.3);
 }
-
 
 /* =========================================================
    SERVICE IMAGE
@@ -1010,11 +1800,10 @@ h2{
   overflow:hidden;
 }
 
-.service-image::after{
+.service-image:after{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   background:
@@ -1041,18 +1830,20 @@ h2{
 
   font-weight:800;
 
-  border:1px solid rgba(255,255,255,.25);
+  border:
+    1px solid rgba(255,255,255,.25);
 
   border-radius:999px;
 
   padding:6px 9px;
 
-  background:rgba(0,0,0,.45);
+  background:
+    rgba(0,0,0,.45);
 }
 
-
 /* =========================================================
-   SERVICE IMAGES
+   SOLAR INSTALLATION
+   PHOTO = ROOF + SOLAR PANELS
 ========================================================= */
 
 .solar{
@@ -1064,8 +1855,30 @@ h2{
     url("https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=90");
 
   background-size:cover;
+
   background-position:center;
 }
+
+/*
+   IMPORTANT:
+   No pseudo-element technician.
+   No fake panel.
+   The photograph itself is the feature.
+*/
+
+.solar:before{
+  content:none;
+}
+
+.solar:after{
+  content:"";
+}
+
+/* =========================================================
+   INDUSTRIAL WIRING
+   PHOTO = ELECTRICAL DISTRIBUTION / CONTROL PANEL
+   NO PERSON
+========================================================= */
 
 .wiring{
   background-image:
@@ -1076,8 +1889,27 @@ h2{
     url("https://vater-gruppe.de/media/pages/medien/c7222f4642-1690448335/e-sicherungskasten-1800x.jpg");
 
   background-size:cover;
+
   background-position:center;
 }
+
+/* REMOVE OLD FAKE BOX */
+
+.wiring:before{
+  content:none;
+}
+
+/* REMOVE OLD PERSON/TEXT GRAPHIC */
+
+.wiring:after{
+  content:"";
+}
+
+/* =========================================================
+   FAULT TROUBLESHOOTING & MAINTENANCE
+   PHOTO = ELECTRICAL DIAGNOSTIC / CONTROL EQUIPMENT
+   NO TECHNICIAN
+========================================================= */
 
 .faults{
   background-image:
@@ -1088,8 +1920,26 @@ h2{
     url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=90");
 
   background-size:cover;
+
   background-position:center;
 }
+
+/* REMOVE OLD FAKE EQUIPMENT */
+
+.faults:before{
+  content:none;
+}
+
+/* REMOVE OLD GRAPHIC LABEL */
+
+.faults:after{
+  content:"";
+}
+
+/* =========================================================
+   HYBRID INVERTER + BATTERY
+   REAL PHOTO OF INVERTER + BATTERY
+========================================================= */
 
 .hybrid{
   background-image:
@@ -1100,8 +1950,56 @@ h2{
     url("https://www.aforenergy.com/wp-content/uploads/2025/12/5-2.webp");
 
   background-size:cover;
+
   background-position:center;
 }
+
+/* REMOVE FAKE CSS INVERTER */
+
+.hybrid:before{
+  content:none;
+}
+
+/* REMOVE FAKE CSS BATTERY */
+
+.hybrid:after{
+  content:none;
+}
+
+/* REMOVE OLD BATTERY VARIABLES */
+
+.hybrid{
+  --battery-lines:none;
+}
+
+/* =========================================================
+   HOUSE / ELECTRICAL WIRING
+   NO PERSON
+========================================================= */
+
+.house-wiring{
+  background-image:
+    linear-gradient(
+      rgba(2,10,17,.08),
+      rgba(2,10,17,.42)
+    ),
+    url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=90");
+
+  background-size:cover;
+
+  background-position:center;
+}
+
+/* Absolutely no decorative person/equipment */
+
+.house-wiring:before,
+.house-wiring:after{
+  content:none;
+}
+
+/* =========================================================
+   CCTV
+========================================================= */
 
 .cctv{
   background-image:
@@ -1109,11 +2007,18 @@ h2{
       rgba(0,0,0,.12),
       rgba(0,0,0,.45)
     ),
-    url("https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=90");
+    url(
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=90"
+    );
 
   background-size:cover;
+
   background-position:center;
 }
+
+/* =========================================================
+   LIGHTING
+========================================================= */
 
 .lighting{
   background-image:
@@ -1121,12 +2026,14 @@ h2{
       rgba(0,0,0,.12),
       rgba(0,0,0,.45)
     ),
-    url("https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1200&q=90");
+    url(
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1200&q=90"
+    );
 
   background-size:cover;
+
   background-position:center;
 }
-
 
 /* =========================================================
    SERVICE BODY
@@ -1174,11 +2081,6 @@ h2{
   text-decoration:none;
 }
 
-.service-body a:hover{
-  text-decoration:underline;
-}
-
-
 /* =========================================================
    ABOUT
 ========================================================= */
@@ -1219,12 +2121,7 @@ h2{
   font-size:12px;
 }
 
-.about-copy li{
-  display:flex;
-  align-items:center;
-}
-
-.about-copy li::before{
+.about-copy li:before{
   content:"✓";
 
   color:#0b0e12;
@@ -1243,10 +2140,7 @@ h2{
   margin-right:8px;
 
   font-weight:900;
-
-  flex-shrink:0;
 }
-
 
 /* =========================================================
    ABOUT BRAND
@@ -1277,7 +2171,8 @@ h2{
       #070a0f
     );
 
-  border:1px solid rgba(37,169,255,.16);
+  border:
+    1px solid rgba(37,169,255,.16);
 
   border-radius:30px;
 
@@ -1290,7 +2185,8 @@ h2{
   width:260px;
   height:260px;
 
-  background:rgba(37,169,255,.12);
+  background:
+    rgba(37,169,255,.12);
 
   filter:blur(70px);
 
@@ -1319,7 +2215,7 @@ h2{
   text-align:center;
 }
 
-.about-brand>p{
+.about-brand p{
   font-size:9px;
 
   letter-spacing:3px;
@@ -1335,7 +2231,6 @@ h2{
   text-align:center;
 }
 
-
 /* =========================================================
    STATS
 ========================================================= */
@@ -1350,7 +2245,8 @@ h2{
 
   display:grid;
 
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
 
   gap:9px;
 
@@ -1360,9 +2256,11 @@ h2{
 .stats div{
   text-align:center;
 
-  background:rgba(255,255,255,.035);
+  background:
+    rgba(255,255,255,.035);
 
-  border:1px solid rgba(255,255,255,.08);
+  border:
+    1px solid rgba(255,255,255,.08);
 
   padding:14px 5px;
 
@@ -1383,7 +2281,6 @@ h2{
   font-size:8px;
 }
 
-
 /* =========================================================
    PROCESS
 ========================================================= */
@@ -1395,7 +2292,8 @@ h2{
 .process-grid{
   display:grid;
 
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
   gap:18px;
 
@@ -1405,7 +2303,8 @@ h2{
 .process-step{
   padding:30px;
 
-  border-top:1px solid rgba(37,169,255,.3);
+  border-top:
+    1px solid rgba(37,169,255,.3);
 
   background:
     linear-gradient(
@@ -1435,9 +2334,8 @@ h2{
   font-size:13px;
 }
 
-
 /* =========================================================
-   CTA / CONTACT
+   CTA
 ========================================================= */
 
 .cta{
@@ -1450,7 +2348,7 @@ h2{
   background:#061a2d;
 }
 
-.cta::before{
+.cta:before{
   content:"";
 
   position:absolute;
@@ -1464,8 +2362,6 @@ h2{
       transparent 45%,
       rgba(37,169,255,.12)
     );
-
-  pointer-events:none;
 }
 
 .cta-electric{
@@ -1477,14 +2373,16 @@ h2{
   right:-260px;
   top:-320px;
 
-  border:1px solid rgba(80,150,255,.2);
+  border:
+    1px solid rgba(80,150,255,.2);
 
   border-radius:50%;
 
   box-shadow:
     0 0 100px rgba(40,120,255,.1);
 
-  animation:ctaRotate 18s linear infinite;
+  animation:
+    ctaRotate 18s linear infinite;
 }
 
 @keyframes ctaRotate{
@@ -1501,17 +2399,13 @@ h2{
 .cta-inner{
   position:relative;
 
-  display:grid;
-
-  grid-template-columns:minmax(0,1fr) minmax(430px,520px);
+  display:flex;
 
   align-items:center;
 
-  gap:55px;
-}
+  justify-content:space-between;
 
-.cta-copy{
-  min-width:0;
+  gap:40px;
 }
 
 .cta h2{
@@ -1522,32 +2416,65 @@ h2{
   color:var(--muted);
 
   margin-top:14px;
-
-  max-width:600px;
 }
 
 .contact-actions{
-  display:grid;
+  display:flex;
 
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
 
-  gap:12px;
+  flex-wrap:wrap;
 
-  width:100%;
+  justify-content:flex-end;
 }
 
-.contact-actions .big{
-  width:100%;
+/* =========================================================
+   CAPABILITIES / PROJECT PROOF
+========================================================= */
 
-  min-width:0;
+.proof{ background:#04111d; }
 
-  min-height:52px;
+.project-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+
+.project-card{
+  position:relative; min-height:320px; overflow:hidden; display:flex;
+  flex-direction:column; justify-content:flex-end; padding:28px;
+  border:1px solid rgba(255,255,255,.1); border-radius:22px;
+  background:#071c2c; isolation:isolate; transition:transform .3s,border-color .3s;
 }
 
-.contact-actions .btn-qr{
-  grid-column:1/-1;
+.project-card:before,.project-card:after{ content:""; position:absolute; pointer-events:none; z-index:-1; }
+.project-card:before{
+  width:230px; height:230px; border:1px solid rgba(57,180,255,.38); border-radius:50%;
+  top:-80px; right:-50px; box-shadow:0 0 60px rgba(0,156,255,.16),inset 0 0 45px rgba(0,156,255,.09);
 }
+.project-card:after{ inset:0; opacity:.85; background:linear-gradient(135deg,transparent 48%,rgba(37,169,255,.11) 49%,transparent 50%),linear-gradient(45deg,transparent 60%,rgba(255,196,61,.13) 61%,transparent 62%); }
+.project-wiring:before{ border-radius:18px; transform:rotate(45deg); }
+.project-security:before{ width:190px; height:190px; border-radius:30% 70% 70% 30%; border-color:rgba(255,196,61,.45); box-shadow:0 0 60px rgba(255,196,61,.13),inset 0 0 45px rgba(255,196,61,.09); }
+.project-card:hover{ transform:translateY(-7px); border-color:rgba(37,169,255,.42); }
+.project-card span{ margin-bottom:12px; color:var(--gold); font-size:10px; font-weight:800; letter-spacing:1.7px; text-transform:uppercase; }
+.project-card h3{ max-width:280px; font-size:25px; line-height:1.08; letter-spacing:-1px; }
+.proof-note{ margin-top:24px; color:var(--muted); font-size:13px; text-align:center; }
 
+/* =========================================================
+   QUOTE FORM
+========================================================= */
+
+.quote-form{ width:min(100%,540px); margin:38px auto 0; padding:28px; border:1px solid rgba(255,255,255,.1); border-radius:22px; background:rgba(2,14,25,.72); box-shadow:0 20px 55px rgba(0,0,0,.2); }
+.quote-form h3{ font-size:24px; letter-spacing:-.8px; }
+.quote-form-intro{ margin:7px 0 20px; color:var(--muted); font-size:13px; }
+.quote-fields{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px; }
+.quote-fields label{ display:flex; flex-direction:column; gap:7px; color:#dfe9f2; font-size:11px; font-weight:700; }
+.quote-fields input,.quote-fields select,.quote-fields textarea{ width:100%; border:1px solid rgba(255,255,255,.13); border-radius:9px; padding:11px 12px; outline:none; color:#f5f8fb; background:rgba(255,255,255,.05); font:inherit; font-size:13px; }
+.quote-fields textarea{ resize:vertical; }
+.quote-fields input:focus,.quote-fields select:focus,.quote-fields textarea:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,169,255,.14); }
+.quote-fields select option{ color:#07101a; }
+.quote-message{ grid-column:1/-1; }
+.form-trap{ position:absolute; left:-9999px; }
+
+.big{
+  min-width:190px;
+}
 
 /* =========================================================
    FOOTER
@@ -1556,7 +2483,8 @@ h2{
 .footer{
   background:#030d18;
 
-  border-top:1px solid rgba(255,255,255,.08);
+  border-top:
+    1px solid rgba(255,255,255,.08);
 
   padding:65px 0 20px;
 }
@@ -1564,15 +2492,10 @@ h2{
 .footer-grid{
   display:grid;
 
-  grid-template-columns:1.6fr .8fr 1.1fr .9fr;
+  grid-template-columns:
+    1.6fr .8fr 1.1fr .8fr;
 
   gap:45px;
-
-  align-items:start;
-}
-
-.footer-brand{
-  min-width:0;
 }
 
 .footer-brand p{
@@ -1585,87 +2508,44 @@ h2{
   margin-top:18px;
 }
 
-
-/* IMPORTANT:
-   Keep footer logo styles separate from footer links.
-*/
-
-.footer-logo{
-  width:max-content;
-}
-
-.footer-logo img{
-  width:42px;
-  height:42px;
-}
-
-.footer-logo .brand-text{
-  display:grid;
-}
-
-.footer-logo .brand-text b{
-  font-size:15px;
-}
-
-.footer-logo .brand-text strong{
-  font-size:15px;
-}
-
-.footer-logo .brand-text small{
-  font-size:6px;
-}
-
-
-/* FOOTER COLUMNS */
-
-.footer-column{
-  display:flex;
-
-  flex-direction:column;
-
-  gap:9px;
-
-  min-width:0;
-}
-
-.footer-column h4{
+.footer h4{
   font-size:10px;
 
   letter-spacing:2px;
 
   color:var(--gold);
 
-  margin-bottom:8px;
+  margin-bottom:17px;
 }
 
-.footer-column a,
-.footer-location{
+.footer-grid>div:not(.footer-brand){
+  display:flex;
+
+  flex-direction:column;
+
+  gap:9px;
+}
+
+.footer a,
+.footer span{
   color:#8f98a5;
 
   text-decoration:none;
 
   font-size:11px;
-
-  line-height:1.6;
-
-  transition:.25s ease;
 }
 
-.footer-column a:hover{
+.footer a:hover{
   color:var(--gold);
 }
 
-.footer-location{
-  display:block;
+.footer-logo img{
+  width:42px;
 }
 
-
-/* =========================================================
-   FOOTER BOTTOM
-========================================================= */
-
 .footer-bottom{
-  border-top:1px solid rgba(255,255,255,.07);
+  border-top:
+    1px solid rgba(255,255,255,.07);
 
   margin-top:50px;
 
@@ -1675,29 +2555,8 @@ h2{
 
   justify-content:space-between;
 
-  align-items:center;
-
   gap:20px;
-
-  color:#737d8a;
-
-  font-size:10px;
 }
-
-.footer-bottom > span{
-  color:#737d8a;
-
-  font-size:10px;
-
-  line-height:1.5;
-}
-
-.footer-bottom > span > span{
-  color:inherit;
-
-  font-size:inherit;
-}
-
 
 /* =========================================================
    QR MODAL
@@ -1708,10 +2567,10 @@ h2{
 
   inset:0;
 
-  background:rgba(0,0,0,.78);
+  background:
+    rgba(0,0,0,.78);
 
   backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
 
   display:none;
 
@@ -1729,13 +2588,10 @@ h2{
 .qr-box{
   width:min(420px,90%);
 
-  max-height:90vh;
-
-  overflow:auto;
-
   background:#0b1017;
 
-  border:1px solid rgba(37,169,255,.3);
+  border:
+    1px solid rgba(37,169,255,.3);
 
   border-radius:25px;
 
@@ -1782,24 +2638,17 @@ h2{
   cursor:pointer;
 }
 
-.qr-close:hover{
-  color:#fff;
-}
-
 .qr-box #qrcode{
-  background:#fff;
+  background:white;
 
   padding:14px;
 
   width:max-content;
 
-  max-width:100%;
-
   margin:0 auto;
 
   border-radius:12px;
 }
-
 
 /* =========================================================
    REVEAL ANIMATION
@@ -1825,7 +2674,6 @@ h2{
   transition-delay:.15s;
 }
 
-
 /* =========================================================
    TABLET
 ========================================================= */
@@ -1835,17 +2683,14 @@ h2{
   .hero-content{
     grid-template-columns:1fr;
 
-    gap:35px;
+    gap:45px;
   }
 
   .hero-copy{
     text-align:center;
   }
 
-  .hero-copy .eyebrow{
-    justify-content:center;
-  }
-
+  .hero-copy .eyebrow,
   .trust-row{
     justify-content:center;
   }
@@ -1863,23 +2708,10 @@ h2{
 
     margin:auto;
   }
-
-  .cta-inner{
-    grid-template-columns:1fr;
-
-    gap:35px;
-  }
-
-  .contact-actions{
-    max-width:650px;
-
-    margin:0 auto;
-  }
 }
 
-
 /* =========================================================
-   MOBILE NAV / TABLET
+   MOBILE / TABLET MENU
 ========================================================= */
 
 @media(max-width:900px){
@@ -1904,9 +2736,11 @@ h2{
 
     gap:0;
 
-    background:rgba(10,14,20,.98);
+    background:
+      rgba(10,14,20,.98);
 
-    border:1px solid rgba(255,255,255,.1);
+    border:
+      1px solid rgba(255,255,255,.1);
 
     border-radius:18px;
 
@@ -1927,7 +2761,8 @@ h2{
   }
 
   .nav-links a:hover{
-    background:rgba(255,255,255,.05);
+    background:
+      rgba(255,255,255,.05);
   }
 
   .nav-call{
@@ -1943,7 +2778,8 @@ h2{
   }
 
   .service-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .about-grid{
@@ -1956,6 +2792,16 @@ h2{
     grid-template-columns:1fr;
   }
 
+  .cta-inner{
+    flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+  .contact-actions{
+    justify-content:flex-start;
+  }
+
   .footer-grid{
     grid-template-columns:1fr 1fr;
   }
@@ -1964,7 +2810,6 @@ h2{
     grid-column:1/-1;
   }
 }
-
 
 /* =========================================================
    PHONE
@@ -1993,17 +2838,16 @@ h2{
     height:42px;
   }
 
-  .brand-text b,
-  .brand-text strong{
+  .brand b,
+  .brand strong{
     font-size:15px;
   }
 
-  .brand-text small{
+  .brand small{
     font-size:6px;
 
     letter-spacing:1.1px;
   }
-
 
   /* =======================================================
      HERO
@@ -2012,11 +2856,24 @@ h2{
   .hero{
     padding-top:115px;
 
-    padding-bottom:75px;
+    padding-bottom:100px;
   }
 
   .hero-bg{
-    background-position:center center;
+    background-position:
+      65% center;
+  }
+
+  .hero-content{
+    gap:35px;
+  }
+
+  .hero-copy{
+    text-align:left;
+  }
+
+  .hero-copy .eyebrow{
+    justify-content:flex-start;
   }
 
   h1{
@@ -2030,6 +2887,8 @@ h2{
   }
 
   .trust-row{
+    justify-content:flex-start;
+
     gap:10px;
 
     font-size:10px;
@@ -2045,25 +2904,104 @@ h2{
     width:100%;
   }
 
+  /* =======================================================
+     TECHNICIAN SCENE
+  ======================================================= */
+
   .hero-visual{
+    display:flex;
+
     width:100%;
+
+    overflow:visible;
   }
 
   .tech-scene{
     width:100%;
 
-    max-width:430px;
-
     height:430px;
 
-    border-radius:26px;
+    border-radius:24px;
   }
 
   .scene-label{
     top:16px;
+
+    left:16px;
+
+    font-size:7px;
+
+    letter-spacing:1.3px;
+  }
+
+  .hybrid-inverter{
+    width:145px;
+
+    height:215px;
+
+    right:25px;
+
+    top:90px;
+  }
+
+  .inverter-screen{
+    top:58px;
+
+    left:15px;
+    right:15px;
+
+    height:66px;
+
+    padding:9px;
+  }
+
+  .inverter-title{
+    font-size:7px;
+
+    padding-top:10px;
+  }
+
+  .inverter-screen span{
+    font-size:5px;
+  }
+
+  .inverter-screen strong{
+    font-size:10px;
+  }
+
+  .screen-bars i{
+    width:14px;
+
+    height:3px;
+  }
+
+  .inverter-lights{
+    bottom:17px;
+
     left:17px;
   }
 
+  .technician{
+    transform:scale(.78);
+
+    transform-origin:
+      bottom left;
+
+    left:3px;
+
+    bottom:4px;
+  }
+
+  .tool-box{
+    transform:scale(.8);
+
+    transform-origin:
+      bottom right;
+
+    right:20px;
+
+    bottom:15px;
+  }
 
   /* =======================================================
      SECTIONS
@@ -2080,14 +3018,31 @@ h2{
     letter-spacing:-2px;
   }
 
+  /* =======================================================
+     SERVICES
+  ======================================================= */
+
   .service-grid{
     grid-template-columns:1fr;
   }
+
+  .project-grid{ grid-template-columns:1fr; }
+
+  .project-card{ min-height:250px; }
 
   .service-image{
     height:210px;
   }
 
+  .solar,
+  .wiring,
+  .faults,
+  .hybrid,
+  .house-wiring,
+  .cctv,
+  .lighting{
+    background-position:center;
+  }
 
   /* =======================================================
      ABOUT
@@ -2102,7 +3057,8 @@ h2{
 
     height:auto;
 
-    padding:55px 20px 28px;
+    padding:
+      55px 20px 28px;
 
     overflow:hidden;
   }
@@ -2129,7 +3085,7 @@ h2{
     width:100%;
   }
 
-  .about-brand>p{
+  .about-brand p{
     font-size:8px;
 
     line-height:1.5;
@@ -2156,7 +3112,8 @@ h2{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
 
     gap:10px;
   }
@@ -2187,9 +3144,8 @@ h2{
     margin-top:3px;
   }
 
-
   /* =======================================================
-     CONTACT
+     CTA
   ======================================================= */
 
   .cta{
@@ -2197,12 +3153,6 @@ h2{
   }
 
   .cta-inner{
-    width:100%;
-
-    gap:30px;
-  }
-
-  .cta-copy{
     width:100%;
   }
 
@@ -2212,10 +3162,6 @@ h2{
     display:grid;
 
     grid-template-columns:1fr;
-
-    gap:10px;
-
-    max-width:none;
   }
 
   .contact-actions .btn{
@@ -2224,23 +3170,16 @@ h2{
     min-width:0;
   }
 
-  .contact-actions .btn-qr{
-    grid-column:auto;
-  }
-
+  .quote-form{ width:100%; padding:22px; }
+  .quote-fields{ grid-template-columns:1fr; }
+  .quote-message{ grid-column:auto; }
 
   /* =======================================================
      FOOTER
   ======================================================= */
 
-  .footer{
-    padding-top:55px;
-  }
-
   .footer-grid{
     grid-template-columns:1fr;
-
-    gap:32px;
   }
 
   .footer-brand{
@@ -2251,18 +3190,13 @@ h2{
     flex-direction:column;
 
     text-align:center;
-
-    align-items:center;
   }
-
 
   /* =======================================================
      QR
   ======================================================= */
 
   .qr-box{
-    width:min(92%,420px);
-
     padding:28px 20px;
   }
 
@@ -2275,29 +3209,79 @@ h2{
   }
 }
 
-
 /* =========================================================
-   VERY SMALL PHONES
+   SMALL PHONES
 ========================================================= */
 
-@media(max-width:380px){
-
-  .brand-text small{
-    font-size:5px;
-
-    letter-spacing:.8px;
-  }
+@media(max-width:390px){
 
   h1{
-    font-size:40px;
+    font-size:39px;
   }
 
-  .section-head h2,
-  h2{
-    font-size:35px;
+  .hero{
+    padding-top:105px;
   }
 
   .tech-scene{
-    height:370px;
+    height:390px;
+  }
+
+  .hybrid-inverter{
+    right:15px;
+
+    transform:scale(.9);
+
+    transform-origin:
+      top right;
+  }
+
+  .technician{
+    transform:scale(.64);
+
+    transform-origin:
+      bottom left;
+
+    left:-8px;
+
+    bottom:2px;
+  }
+
+  .tool-box{
+    right:8px;
+
+    transform:scale(.68);
+
+    transform-origin:
+      bottom right;
+  }
+
+  .service-image{
+    height:205px;
+  }
+
+  .service-image span{
+    font-size:8px;
+
+    padding:5px 7px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+
+    animation-iteration-count:1!important;
+
+    transition-duration:.01ms!important;
+
+    scroll-behavior:auto!important;
   }
 }
